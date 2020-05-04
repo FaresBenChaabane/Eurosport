@@ -1,0 +1,79 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion Integer.parseInt(compileSdkVersionVar)
+
+    defaultConfig {
+        minSdkVersion Integer.parseInt(minSdkVersionVar)
+        targetSdkVersion Integer.parseInt(targetSdkVersionVar)
+        buildToolsVersion buildToolVersionVar
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        vectorDrawables.useSupportLibrary = true
+
+        multiDexEnabled true
+
+        testBuildType 'debug'
+        resConfig "fr"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // For Parcelize feature
+    androidExtensions {
+        experimental = true
+        defaultCacheImplementation = "none"
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
+}
+
+dependencies {
+    implementation project(':commons')
+    implementation project(':commons-android')
+    implementation project(':domainlayer')
+
+    kapt libraries.daggerCompiler
+    kapt libraries.daggerAndroidCompiler
+
+    implementation libraries.kotlin
+    implementation libraries.ktx
+    implementation libraries.constraint
+    implementation libraries.fresco
+    implementation libraries.dagger
+    implementation libraries.daggerAndroid
+    implementation libraries.daggerAndroidSupp
+    implementation libraries.supportAppCompat
+    implementation libraries.supportRecyclerView
+    implementation libraries.supportCardView
+    implementation libraries.design
+    implementation libraries.rxJava
+    implementation libraries.rxKotlin
+    implementation libraries.threeTen
+    implementation libraries.navigation
+    implementation libraries.navigationUi
+    implementation libraries.exoplayer
+
+    // Unit tests
+    testImplementation testLibraries.junit
+    testImplementation testLibraries.mockitoKotlin
+    testImplementation testLibraries.kluent
+    testImplementation testLibraries.kluentAndroid
+    testImplementation testLibraries.robolectric
+}

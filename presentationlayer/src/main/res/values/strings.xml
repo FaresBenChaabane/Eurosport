@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Eurosport</string>
+    <string name="error_title">Saprestis !</string>
+    <string name="error_message">Nous rencontrons actuellement un problème et sommes désolés pour la gêne occasionnée.</string>
+    <string name="error_action">Réessayer</string>
+    <string name="loading_message">Chargement en cours</string>
+    <string name="views">%d views</string>
+    <string name="time_laps">%d day(s) ago</string>
+</resources>

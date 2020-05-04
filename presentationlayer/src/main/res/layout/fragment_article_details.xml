@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- Guidelines -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/view_guideline_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/view_guideline_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/view_guideline_thumb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="225dp" />
+
+    <!-- Image -->
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/view_story_image"
+        android:layout_width="0dp"
+        android:layout_height="240dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Sport Name -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/view_story_sport_name"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        app:layout_constraintStart_toEndOf="@id/view_guideline_start"
+        app:layout_constraintTop_toTopOf="@id/view_guideline_thumb"
+        style="@style/TTextView.White"
+        android:gravity="center"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="@drawable/bg_button_rounded_blue"
+        tools:text="Football" />
+
+    <!-- Title -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/view_story_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/view_guideline_start"
+        app:layout_constraintEnd_toStartOf="@id/view_guideline_end"
+        app:layout_constraintTop_toBottomOf="@id/view_story_sport_name"
+        style="@style/TTextView.Titles"
+        tools:text="Lorum Lorum"
+        android:layout_marginTop="8dp" />
+
+    <!-- Author -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/view_story_author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/view_guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/view_story_title"
+        style="@style/TTextView.Grey"
+        tools:text="John Doe"
+        android:layout_marginTop="8dp" />
+
+    <!-- Time Lapse -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/view_story_time_laps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/view_guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/view_story_author"
+        style="@style/TTextView.Grey"
+        tools:text="12 min ago"
+        android:layout_marginTop="8dp" />
+
+    <!-- Teaser -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/view_story_teaser"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/view_guideline_start"
+        app:layout_constraintEnd_toStartOf="@id/view_guideline_end"
+        app:layout_constraintTop_toBottomOf="@id/view_story_time_laps"
+        style="@style/TTextView"
+        tools:text="Teaser"
+        android:layout_marginTop="8dp" />
+
+    <include
+        layout="@layout/view_error"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:visibility="invisible"
+        android:visibility="gone" />
+
+    <include
+        layout="@layout/view_loading"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:visibility="invisible"
+        android:visibility="gone" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

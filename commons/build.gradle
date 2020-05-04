@@ -1,0 +1,16 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+
+dependencies {
+    implementation libraries.kotlin
+    implementation libraries.threeTen
+    implementation libraries.rxJava
+    implementation libraries.rxKotlin
+
+    // Unit tests
+    testImplementation testLibraries.junit
+    testImplementation testLibraries.kluent
+}
+
+sourceCompatibility = "8"
+targetCompatibility = "8"
